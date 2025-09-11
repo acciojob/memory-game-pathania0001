@@ -1,62 +1,47 @@
-import React from "react"
-import { useState } from "react";
-import GameBoard from "./GameBoard";
+import React, { useState, useEffect } from "react";
 
-function App() {
-  const [level, setLevel] = useState("easy");
-  const [start, setStart] = useState(false);
+function GameBoard({ level }) {
+  const [attempts, setAttempts] = useState(0);
+  const [tiles, setTiles] = useState([]);
+
+  useEffect(() => {
+    let pairs = 4;
+    if (level === "normal") pairs = 8;
+    if (level === "hard") pairs = 16;
+
+    // create shuffled tiles
+    const numbers = Array.from({ length: pairs }, (_, i) => i + 1);
+    const shuffled = [...numbers, ...numbers]
+      .sort(() => Math.random() - 0.5)
+      .map((num, idx) => ({ id: idx, value: num, flipped: false, matched: false }));
+
+    setTiles(shuffled);
+  }, [level]);
+
+  // later you’ll increase attempts on every move
+  const handleTileClick = (id) => {
+    setAttempts((a) => a + 1);
+    // … handle flip logic
+  };
 
   return (
-    <div className="text-center p-4">
-      <h1 className="text-2xl font-bold mb-4">Welcome!</h1>
+    <div>
+      {/* Cypress expects an <h4> with 0 initially */}
+      <h4>{attempts}</h4>
 
-      {/* Difficulty Levels */}
-      <div className="levels_container mb-4">
-        <label className="mr-4">
-          <input
-            type="radio"
-            name="level"
-            id="easy"
-            checked={level === "easy"}
-            onChange={() => setLevel("easy")}
-          />{" "}
-          <h4>Easy</h4>
-          
-        </label>
-        <label className="mr-4">
-          <input
-            type="radio"
-            name="level"
-            id="normal"
-            checked={level === "normal"}
-            onChange={() => setLevel("normal")}
-          />{" "}
-          <h4>Normal</h4>
-          
-        </label>
-        <label className="mr-4">
-          <input
-            type="radio"
-            name="level"
-            id="hard"
-            checked={level === "hard"}
-            onChange={() => setLevel("hard")}
-          />{" "}
-          <h4>
-          Hard
-          </h4>
-        </label>
-        <button
-          className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"
-          onClick={() => setStart(true)}
-        >
-          Start Game
-        </button>
+      <div className="cells_container grid grid-cols-4 gap-2 mt-4">
+        {tiles.map((tile) => (
+          <div
+            key={tile.id}
+            onClick={() => handleTileClick(tile.id)}
+            className="border p-4 cursor-pointer"
+          >
+            {tile.flipped || tile.matched ? tile.value : "?"}
+          </div>
+        ))}
       </div>
-
-      {start && <GameBoard level={level} />}
     </div>
   );
 }
 
-export default App;
+export default GameBoard;

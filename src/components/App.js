@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="text-center p-4">
-      <h1 className="text-2xl font-bold mb-4">🎮 Memory Game</h1>
+      <h1 className="text-2xl font-bold mb-4">Welcome!</h1>
 
       {/* Difficulty Levels */}
       <div className="levels_container mb-4">
@@ -20,7 +20,8 @@ function App() {
             checked={level === "easy"}
             onChange={() => setLevel("easy")}
           />{" "}
-          Easy
+          <h4>Easy</h4>
+          
         </label>
         <label className="mr-4">
           <input
@@ -30,7 +31,8 @@ function App() {
             checked={level === "normal"}
             onChange={() => setLevel("normal")}
           />{" "}
-          Normal
+          <h4>Normal</h4>
+          
         </label>
         <label className="mr-4">
           <input
@@ -40,7 +42,9 @@ function App() {
             checked={level === "hard"}
             onChange={() => setLevel("hard")}
           />{" "}
+          <h4>
           Hard
+          </h4>
         </label>
         <button
           className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"

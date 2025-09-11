@@ -11,36 +11,46 @@ function App() {
 
       {/* Difficulty Levels */}
       <div className="levels_container mb-4">
-  <input
-    type="radio"
-    name="level"
-    id="easy"
-    checked={level === "easy"}
-    onChange={() => setLevel("easy")}
-  />
-  <label htmlFor="easy">Easy</label>
+        <label className="mr-4" htmlFor="easy">
+          <input
+            type="radio"
+            name="level"
+            id="easy"
+            checked={level === "easy"}
+            onChange={() => setLevel("easy")}
+          />
+          <span>Easy</span>
+        </label>
 
-  <input
-    type="radio"
-    name="level"
-    id="normal"
-    checked={level === "normal"}
-    onChange={() => setLevel("normal")}
-  />
-  <label htmlFor="normal">Normal</label>
+        <label className="mr-4" htmlFor="normal">
+          <input
+            type="radio"
+            name="level"
+            id="normal"
+            checked={level === "normal"}
+            onChange={() => setLevel("normal")}
+          />
+          <span>Normal</span>
+        </label>
 
-  <input
-    type="radio"
-    name="level"
-    id="hard"
-    checked={level === "hard"}
-    onChange={() => setLevel("hard")}
-  />
-  <label htmlFor="hard">Hard</label>
+        <label className="mr-4" htmlFor="hard">
+          <input
+            type="radio"
+            name="level"
+            id="hard"
+            checked={level === "hard"}
+            onChange={() => setLevel("hard")}
+          />
+          <span>Hard</span>
+        </label>
 
-  <button onClick={() => setStart(true)}>Start</button>
-</div>
-
+        <button
+          className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={() => setStart(true)}
+        >
+          Start Game
+        </button>
+      </div>
 
       {start && <GameBoard level={level} />}
     </div>

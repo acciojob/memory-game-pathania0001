@@ -10,8 +10,8 @@ function App() {
       <h1 className="text-2xl font-bold mb-4">Welcome!</h1>
 
       {/* Difficulty Levels */}
-      <div className="levels_container mb-4">
-        <label className="mr-4" htmlFor="easy">
+      <div className="levels_container mb-4 flex justify-center">
+        <div className="mr-4 inline-block">
           <input
             type="radio"
             name="level"
@@ -19,10 +19,12 @@ function App() {
             checked={level === "easy"}
             onChange={() => setLevel("easy")}
           />
-          <span>Easy</span>
-        </label>
+          <label htmlFor="easy">
+            <span>Easy</span>
+          </label>
+        </div>
 
-        <label className="mr-4" htmlFor="normal">
+        <div className="mr-4 inline-block">
           <input
             type="radio"
             name="level"
@@ -30,10 +32,12 @@ function App() {
             checked={level === "normal"}
             onChange={() => setLevel("normal")}
           />
-          <span>Normal</span>
-        </label>
+          <label htmlFor="normal">
+            <span>Normal</span>
+          </label>
+        </div>
 
-        <label className="mr-4" htmlFor="hard">
+        <div className="mr-4 inline-block">
           <input
             type="radio"
             name="level"
@@ -41,8 +45,10 @@ function App() {
             checked={level === "hard"}
             onChange={() => setLevel("hard")}
           />
-          <span>Hard</span>
-        </label>
+          <label htmlFor="hard">
+            <span>Hard</span>
+          </label>
+        </div>
 
         <button
           className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"

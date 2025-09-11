@@ -19,7 +19,7 @@ function App() {
             checked={level === "easy"}
             onChange={() => setLevel("easy")}
           />
-          Easy
+          <span>Easy</span>
         </label>
         <label className="mr-4">
           <input
@@ -29,7 +29,7 @@ function App() {
             checked={level === "normal"}
             onChange={() => setLevel("normal")}
           />
-          Normal
+          <span>Normal</span>
         </label>
         <label className="mr-4">
           <input
@@ -39,7 +39,7 @@ function App() {
             checked={level === "hard"}
             onChange={() => setLevel("hard")}
           />
-          Hard
+          <span>Hard</span>
         </label>
         <button
           className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"
@@ -49,7 +49,6 @@ function App() {
         </button>
       </div>
 
-      {/* Show Game Board after clicking start */}
       {start && <GameBoard level={level} />}
     </div>
   );

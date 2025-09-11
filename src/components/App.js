@@ -19,7 +19,7 @@ function App() {
             checked={level === "easy"}
             onChange={() => setLevel("easy")}
           />
-          <span>Easy</span>
+          Easy
         </label>
         <label className="mr-4">
           <input
@@ -29,7 +29,7 @@ function App() {
             checked={level === "normal"}
             onChange={() => setLevel("normal")}
           />
-          <span>Normal</span>
+          Normal
         </label>
         <label className="mr-4">
           <input
@@ -39,7 +39,7 @@ function App() {
             checked={level === "hard"}
             onChange={() => setLevel("hard")}
           />
-          <span>Hard</span>
+          Hard
         </label>
         <button
           className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"

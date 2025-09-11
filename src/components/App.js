@@ -11,48 +11,45 @@ function App() {
       <h1 className="text-2xl font-bold mb-4">Welcome!</h1>
 
       {/* Difficulty Levels */}
-      <div className="levels_container mb-4">
-        <label className="mr-4">
-          <input
-            type="radio"
-            name="level"
-            id="easy"
-            checked={level === "easy"}
-            onChange={() => setLevel("easy")}
-          />{" "}
-          <h4>Easy</h4>
-          
-        </label>
-        <label className="mr-4">
-          <input
-            type="radio"
-            name="level"
-            id="normal"
-            checked={level === "normal"}
-            onChange={() => setLevel("normal")}
-          />{" "}
-          <h4>Normal</h4>
-          
-        </label>
-        <label className="mr-4">
-          <input
-            type="radio"
-            name="level"
-            id="hard"
-            checked={level === "hard"}
-            onChange={() => setLevel("hard")}
-          />{" "}
-          <h4>
-          Hard
-          </h4>
-        </label>
-        <button
-          className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"
-          onClick={() => setStart(true)}
-        >
-          Start Game
-        </button>
-      </div>
+     <div className="levels_container mb-4">
+  <label className="mr-4">
+    <input
+      type="radio"
+      name="level"
+      id="easy"
+      checked={level === "easy"}
+      onChange={() => setLevel("easy")}
+    />
+    <span>Easy</span>
+  </label>
+  <label className="mr-4">
+    <input
+      type="radio"
+      name="level"
+      id="normal"
+      checked={level === "normal"}
+      onChange={() => setLevel("normal")}
+    />
+    <span>Normal</span>
+  </label>
+  <label className="mr-4">
+    <input
+      type="radio"
+      name="level"
+      id="hard"
+      checked={level === "hard"}
+      onChange={() => setLevel("hard")}
+    />
+    <span>Hard</span>
+  </label>
+  <button
+    className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"
+    onClick={() => setStart(true)}
+  >
+    Start Game
+  </button>
+</div>
+
 
       {start && <GameBoard level={level} />}
     </div>

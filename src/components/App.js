@@ -1,60 +1,13 @@
-import React, { useState } from "react";
-import GameBoard from "./GameBoard";
 
-function App() {
-  const [level, setLevel] = useState("easy");
-  const [start, setStart] = useState(false);
+import React from "react";
+import './../styles/App.css';
 
+const App = () => {
   return (
-    <div className="text-center p-4">
-      <h1 className="text-2xl font-bold mb-4">Welcome!</h1>
-
-      {/* Difficulty Levels */}
-      <div className="levels_container mb-4 flex justify-center">
-        <label className="mr-4 inline-block" htmlFor="easy">
-          <input
-            type="radio"
-            name="level"
-            id="easy"
-            checked={level === "easy"}
-            onChange={() => setLevel("easy")}
-          />
-          <span>Easy</span>
-        </label>
-
-        <label className="mr-4 inline-block" htmlFor="normal">
-          <input
-            type="radio"
-            name="level"
-            id="normal"
-            checked={level === "normal"}
-            onChange={() => setLevel("normal")}
-          />
-          <span>Normal</span>
-        </label>
-
-        <label className="mr-4 inline-block" htmlFor="hard">
-          <input
-            type="radio"
-            name="level"
-            id="hard"
-            checked={level === "hard"}
-            onChange={() => setLevel("hard")}
-          />
-          <span>Hard</span>
-        </label>
-
-        <button
-          className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"
-          onClick={() => setStart(true)}
-        >
-          Start Game
-        </button>
-      </div>
-
-      {start && <GameBoard level={level} />}
+    <div>
+        {/* Do not remove the main div */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
